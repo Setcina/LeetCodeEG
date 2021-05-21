@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./base.css">
+</head>
+<body>
+  <h3>给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。</h3>
+  <div class="content">
+    <div>示例1</div>
+    <div>输入：1->1->2</div>
+    <div>输出：1-></div>
+  </div>
+  <a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/">leetcode地址</a>
+</body>
+<script>
+  var deleteDuplicates = function(head) {
+    const newHead = String(head);
+    const arr = newHead.split("->");
+    let newArr = Array.from(new Set(arr));
+    return newArr.join('->');
+  }
+  deleteDuplicates("1->2->2->3")
+
+</script>
+</html>

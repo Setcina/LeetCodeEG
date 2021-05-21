@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="userName">
+<br>
+<span id ="uName"></span>
+<script>
+    var obj={
+        pwd:"1234"
+    };
+    //主要使用到了get和set方法，最为关键
+    Object.defineProperty(obj,"userName",{
+        get:function(){
+          return obj;
+        },
+        set:function(val){
+          document.getElementById("uName").innerText=val;
+          document.getElementById("userName").value=val;
+        }
+    });
+    document.getElementById("userName").addEventListener("keyup",function(event){
+        obj.userName=event.target.value;
+      }
+    )
+    console.log(obj.userName);
+    console.log(obj);
+</script>
+</body>
+</html>

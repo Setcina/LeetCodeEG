@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var reverse = function(x) {
+      if (x >=0 && x < 10) {
+          return x;
+      } else {
+          const max= 2**31;
+          const min= 2**31;
+          const str  = String(x);
+          const arr = str.split('');
+          const brr = [];
+          const crr = [];
+          let number = '';
+          arr.forEach((item, index) => {
+            if (index === arr.length -1 && item === 0) {
+              return;
+            }
+            if (item === '-') {
+              crr.push(item);
+              return;
+            }
+            brr.unshift(item); 
+          })
+          if (crr.length > 0) {
+            number = crr.concat(brr).join('');
+          } else {
+            number = brr.join('');
+          }
+          return number > max || number < min ? 0 : number;
+      }
+    };
+
+    console.log(reverse(-123));
+  </script>
+  
+</body>
+</html>

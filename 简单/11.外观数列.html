@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./base.css">
+</head>
+<body>
+  <h3>外观数列</h3>
+  <h3>
+    给定一个正整数 n ，输出外观数列的第 n 项。
+
+    「外观数列」是一个整数序列，从数字 1 开始，序列中的每一项都是对前一项的描述。
+
+    你可以将其视作是由递归公式定义的数字字符串序列：
+  </h3>
+
+  <div class="content">
+    <div>21</div>
+    <div>描述前一项，这个数是 21 即 “ 一 个 2 + 一 个 1 ” ，记作 "1211"</div>
+  </div>
+
+  <div class="content">
+    <div>示例1</div>
+    <div>输入： n = 4</div>
+    <div>输出： 1211</div>
+  </div>
+
+  <a href="https://leetcode-cn.com/problems/count-and-say/">leetcode地址</a>
+</body>
+<script>
+  /**
+   * @param {number} n
+   * @return {string}
+   */
+  var count = 0;
+  var countAndSay = function(n) {
+    count++;
+    console.log(n);
+    if(n==1) return '1'
+    function say(str){
+      var reg = /(\d)\1*/g
+      var result = ''
+      var result_str = ''
+      console.log(result);
+      while(result = reg.exec(str)){
+        console.log(result);
+        result_str += result[0].length + result[1]
+      }
+      return result_str
+    }
+    return say(countAndSay(n-1))
+  };
+
+  console.log(countAndSay(4));
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+</head>
+<body>
+  <h3>
+    给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。
+  </h3>
+  <div>
+    <h3>示例：</h3>
+    <p>输入：haystack = "hello", needle = "ll"</p>
+    <p>输出：2</p>
+
+    <br>
+    <br>
+    <h3>示例：</h3>
+    <p>输入：haystack = "aaaaa", needle = "bba"</p>
+    <p>输出：-1</p>
+  </div>
+  <script>
+    var strStr = function(haystack, needle) {
+      const hayArr = haystack.split();
+      const needArr =  needle.split();
+      let index = -1;
+      for (var i = 0; i< hayArr.length; i++) {
+          for (var j = 0; j< hayArr.length; j++) {
+              if (hayArr[i] === hayArr[j]) {
+                hayArr.splice(i, 1);
+                if (j === 0) {
+                  index = i;
+                }
+                needArr.splice(j, 1); 
+              }
+          }
+      }
+
+      if (needArr.length === 0) {
+        return index;
+      }
+    };
+
+    console.log(strStr('hello', 'jl'));
+  </script>
+  
+</body>
+</html>
